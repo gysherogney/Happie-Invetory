@@ -21,7 +21,7 @@
            <center>
             <img src="{{asset('logo.webp')}}" class="img img-fluid" style="height: 250px" alt="">
            </center>
-            <form action="{{route('login')}}" method="POST">
+            <form action="{{route('welcome')}}" method="POST">
                 @csrf
             <div class="form-group">
                  <label for="">UserName</label>

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     //
-    public function UserLogin(Request $request)
+    public function newuser(Request $request)
     {
         if ($request->method()=='POST')
         {
@@ -35,7 +35,7 @@ if (empty($request->password) || !Hash::check($request->password, $user->passwor
             if($user&&$user->user_type=='admin')
             {
                 
-                return view('Auth.admin');
+                return view('admin');
             }
             if(!Hash::check($request->password,$user->password))
             {
@@ -44,13 +44,14 @@ if (empty($request->password) || !Hash::check($request->password, $user->passwor
             auth()->login($user);
                
       
-            return view('Auth.employee');
+            return view('employee');
         }
         return view('Auth.login');
     }
     public function RegisterUser(Request $request)
-    {
-        if($request->method() == 'POST'){
+    {    
+      
+      
 
             $request->validate([
                 'username' => 'required',
@@ -65,13 +66,25 @@ if (empty($request->password) || !Hash::check($request->password, $user->passwor
                     'email' => $request->email,
                     'user_type' => 'employee'
                 ]
-            );
+                );
     
             return redirect()->route('login');
-        }
+        
+  
         return view('Auth.Register');
+    }
         
     
        
+    
+    public function registration()
+    {
+        return view('Auth.Register');
+    }
+
+
+    public function logininterface()
+    {
+         return view('Auth.login');
     }
 }
