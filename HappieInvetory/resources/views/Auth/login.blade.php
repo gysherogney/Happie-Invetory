@@ -35,7 +35,7 @@
            <button  class="btn btn-success mt-3 form-control">
              Login
            </button>
-           <a href="{{route('register')}}">Don't have account? Register.</a>
+           {{-- <a href="{{route('register')}}">Don't have account? Register.</a> --}}
             </form>
         </div>
     </div>
